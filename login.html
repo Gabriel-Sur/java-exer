@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://kit.fontawesome.com/d2d47e34e7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="login-container">  
+        <h1>Login</h1>
+        
+           <label for="email">E-mail</label>
+           <input type="email" name="email" id="email" placeholder="Digite seu e-mail" autocomplete="off">
+           <label for="password">Senha</label>
+           <input type="password" name="password" id="password" placeholder="Digite sua senha">
+           <a href="#" id="forgot-pass">Esqueci minha senha</a>
+           <input type="submit" onclick="testaSenha()" value="Login">
+        
+        <div id="social-container">
+            <p>Em alternativa, use as redes sociais pra fazer log-in</p>
+            <i class="fa fa-facebook-f"></i>
+            <i class="fa fa-google"></i>
+            <i class="fa fa-linkedin"></i>
+        </div>
+        <div id="register-container"></div>
+        <p>Ainda não é cadastrado?</p>
+        <a href="registrar.html">Criar uma conta</a>
+    </div>
+    <script type="text/javascript" src="db.json"></script>
+    <script>
+        const mydata = JSON.parse(db);
+        
+        const testaSenha = () => {
+            const user = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            mydata.map((valor) => {
+                if (user === valor.usuario && password === valor.password){
+                    window.location.replace("produtos.html");
+                }
+            })
+        }
+
+    </script>
+</body>
+</html>
